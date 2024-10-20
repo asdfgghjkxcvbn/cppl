@@ -1,0 +1,83 @@
+#include <iostream>
+
+class regpoly {
+private:
+    int nsides;
+
+protected:
+    int Iside;
+
+public:
+
+    regpoly() : nsides(0), Iside(0) {}
+
+
+    regpoly(int n, int I) : nsides(n), Iside(I) {}
+
+
+    void show() {
+        std::cout << "The regular polygon has " << nsides << " sides of length " << Iside << " units." << std::endl;
+    }
+
+
+    virtual void showarea() {
+        std::cout << "The regular polygon has " << nsides << " sides of length " << Iside << " units." << std::endl;
+    }
+};
+
+class square : public regpoly {
+private:
+    int area, peri;
+
+public:
+
+    square(int I) : regpoly(4, I), area(0), peri(0) {}
+
+
+    void calarea() {
+        area = Iside * Iside;
+    }
+
+
+    void calperi() {
+        peri = 4 * Iside;
+    }
+
+
+    void show()  {
+
+std::cout << "The square has sides of length " << Iside <<" units" << std::endl;
+
+}
+
+void showareaperi()
+
+{
+
+std::cout << "The area and perimeter of square are " << area <<" sq units and " <<peri <<" units respectively" << std::endl;
+
+}
+
+};
+
+int main()
+
+{
+
+std::cout<< "Regular polygon r" <<std::endl;
+
+regpoly r(4,6); r.show();
+
+std::cout<< "Square" <<std::endl;
+
+square s(3);
+
+s.show();
+
+s.calarea();
+
+s.calperi();
+
+s.showareaperi();
+
+}
