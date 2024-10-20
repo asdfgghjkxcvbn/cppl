@@ -1,0 +1,24 @@
+class Pig 
+{
+	public void animalSound() 
+	{
+		System.out.println("The pig says: wee wee");
+		}
+		}
+class Dog
+{
+	public void animalSound()
+	{
+		System.out.println("The dog says: bow wow"); 
+		} 
+		}
+class polymorphism1
+{
+	public static void main(String[] args)
+	{
+		Pig myPig = new Pig();
+		Dog myDog = new Dog();
+		myPig.animalSound();
+		myDog.animalSound();
+		} 
+		}
