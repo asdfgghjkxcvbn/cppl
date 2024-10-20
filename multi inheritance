@@ -1,0 +1,56 @@
+#include <iostream>
+
+class rectangle {
+public:
+    double length;
+    double breadth;
+
+
+    rectangle(double len, double bre) : length(len), breadth(bre) {}
+
+
+    double area() {
+        return length * breadth;
+    }
+};
+
+class painting {
+public:
+    double ratePerSquareUnit;
+
+
+    painting(double rate) : ratePerSquareUnit(rate) {}
+};
+
+class wall : public rectangle, public painting {
+public:
+
+    wall(double len, double bre, double rate)
+        : rectangle(len, bre), painting(rate) {}
+
+
+    double costofpainting() {
+        return area() * ratePerSquareUnit;
+    }
+};
+
+int main() {
+    double length, breadth, rate;
+
+    std::cout << "Enter the length and breadth of the wall: ";
+    std::cin >> length >> breadth;
+
+    std::cout << "Enter the rate per square unit of painting the wall: ";
+    std::cin >> rate;
+
+
+    wall w(length, breadth, rate);
+
+
+    double cost = w.costofpainting();
+
+
+    std::cout << "Cost of painting the wall will be: " << cost << std::endl;
+
+    return 0;
+}
